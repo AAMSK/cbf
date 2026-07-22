@@ -24,14 +24,15 @@ class _SplashScreenState extends State<SplashScreen>
     )..repeat(reverse: true);
 
     Timer(const Duration(seconds: 3), () {
-        if (!mounted) return;
-
-        Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(
-                builder: (context) => const HomeScreen(),
-            ),
-        );
+      if (!mounted) return;
+    
+      print("Timer Fired");
+    
+    Navigator.of(context).pushReplacement(
+        MaterialPageRoute(
+          builder: (_) => const HomeScreen(),
+        ),
+      );
     });
   }
 
