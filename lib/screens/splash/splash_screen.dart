@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import '../home/home_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -23,10 +24,14 @@ class _SplashScreenState extends State<SplashScreen>
     )..repeat(reverse: true);
 
     Timer(const Duration(seconds: 3), () {
-      if (!mounted) return;
+        if (!mounted) return;
 
-      // TODO:
-      // Navigator.pushReplacement(...)
+        Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+                builder: (context) => const HomeScreen(),
+            ),
+        );
     });
   }
 
