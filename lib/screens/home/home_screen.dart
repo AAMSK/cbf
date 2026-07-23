@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 import 'tabs/home_tab.dart';
-import 'tabs/donor_screen.dart';
-import 'tabs/health_screen.dart';
-import 'tabs/profile_screen.dart';
+import 'tabs/donors_tab.dart';
+import 'tabs/health_tab.dart';
+import 'tabs/profile_tab.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
