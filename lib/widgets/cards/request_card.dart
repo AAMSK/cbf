@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class RequestCard extends StatelessWidget {
-  const BloodRequestCard({
+  const RequestCard({
     super.key,
     this.bloodGroup = "A+",
     this.patientName = "মোঃ আব্দুল করিম",
