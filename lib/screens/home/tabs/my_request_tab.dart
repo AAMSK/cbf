@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../widgets/home/status_chip.dart';
-import '../../../widgets/home/blood_request_card.dart';
+import '../../../widgets/cards/request_card.dart';
 
 class MyRequestTab extends StatelessWidget {
   const MyRequestTab({super.key});
@@ -38,7 +38,7 @@ class MyRequestTab extends StatelessWidget {
             padding: const EdgeInsets.only(bottom: 80),
             itemCount: 5,
             itemBuilder: (context, index) {
-              return const BloodRequestCard();
+              return const RequestCard();
             },
           ),
         ),

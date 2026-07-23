@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../widgets/home/blood_request_card.dart';
+import '../../../widgets/cards/request_card.dart';
 
 class PostTab extends StatelessWidget {
   const PostTab({super.key});
@@ -38,7 +38,7 @@ class PostTab extends StatelessWidget {
             padding: const EdgeInsets.only(bottom: 80),
             itemCount: 10,
             itemBuilder: (context, index) {
-              return const BloodRequestCard();
+              return const RequestCard();
             },
           ),
         ),
