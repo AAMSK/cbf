@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 
+import 'tabs/home_tab.dart';
+import 'tabs/donor_screen.dart';
+import 'tabs/health_screen.dart';
+import 'tabs/profile_screen.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -11,52 +16,15 @@ class _HomeScreenState extends State<HomeScreen> {
   int _currentIndex = 0;
 
   final List<Widget> _pages = const [
-    Center(
-      child: Text(
-        "Home",
-        style: TextStyle(
-          fontSize: 24,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-    ),
-    Center(
-      child: Text(
-        "Donors",
-        style: TextStyle(
-          fontSize: 24,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-    ),
-    Center(
-      child: Text(
-        "Health Tips",
-        style: TextStyle(
-          fontSize: 24,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-    ),
-    Center(
-      child: Text(
-        "Profile",
-        style: TextStyle(
-          fontSize: 24,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-    ),
+    HomeTab(),
+    DonorsTab(),
+    HealthTab(),
+    ProfileTab(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("চাঁভালি রক্ত ফাউন্ডেশন"),
-        centerTitle: true,
-      ),
-
       body: _pages[_currentIndex],
 
       bottomNavigationBar: NavigationBar(
