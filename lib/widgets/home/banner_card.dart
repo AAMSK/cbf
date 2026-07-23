@@ -10,23 +10,32 @@ class BannerCard extends StatelessWidget {
   const BannerCard({
     super.key,
     required this.imageUrl,
-    this.borderRadius = 16,
+    this.borderRadius = 18,
     this.margin = const EdgeInsets.symmetric(
       horizontal: 16,
-      vertical: 12,
+      vertical: 8,
     ),
-    this.aspectRatio = 16 / 6,
+    this.aspectRatio = 16 / 5,
   });
 
   @override
   Widget build(BuildContext context) {
-    // Banner না থাকলে কিছুই দেখাবে না
     if (imageUrl == null || imageUrl!.trim().isEmpty) {
       return const SizedBox.shrink();
     }
 
     return Container(
       margin: margin,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(borderRadius),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.06),
+            blurRadius: 12,
+            offset: const Offset(0, 4),
+          ),
+        ],
+      ),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(borderRadius),
         child: AspectRatio(
@@ -34,44 +43,29 @@ class BannerCard extends StatelessWidget {
           child: CachedNetworkImage(
             imageUrl: imageUrl!,
             fit: BoxFit.cover,
-            fadeInDuration: const Duration(milliseconds: 300),
-            fadeOutDuration: const Duration(milliseconds: 200),
+            fadeInDuration: const Duration(milliseconds: 250),
 
-            placeholder: (context, url) {
-              return Container(
-                color: Colors.grey.shade200,
-                child: const Center(
-                  child: CircularProgressIndicator(
-                    strokeWidth: 2,
-                  ),
+            placeholder: (context, url) => Container(
+              color: Colors.grey.shade100,
+              alignment: Alignment.center,
+              child: const SizedBox(
+                width: 24,
+                height: 24,
+                child: CircularProgressIndicator(
+                  strokeWidth: 2,
                 ),
-              );
-            },
+              ),
+            ),
 
-            errorWidget: (context, url, error) {
-              return Container(
-                color: Colors.grey.shade100,
-                alignment: Alignment.center,
-                child: const Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(
-                      Icons.image_not_supported_outlined,
-                      size: 40,
-                      color: Colors.grey,
-                    ),
-                    SizedBox(height: 8),
-                    Text(
-                      'Banner unavailable',
-                      style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 13,
-                      ),
-                    ),
-                  ],
-                ),
-              );
-            },
+            errorWidget: (context, url, error) => Container(
+              color: Colors.grey.shade100,
+              alignment: Alignment.center,
+              child: const Icon(
+                Icons.broken_image_outlined,
+                color: Colors.grey,
+                size: 28,
+              ),
+            ),
           ),
         ),
       ),
